@@ -1,0 +1,8 @@
+Controller,Short Controller Description,Swingup Success,Swingup Time [s],Energy [J],Torque Cost[N²m²],Torque Smoothness [Nm],Velocity Cost [m²/s²],RealAI Score,Username
+TVLQR,Stabilization of iLQR trajectory with time-varying LQR.,1/1,4.05,10.43,1.87,0.016,105.83,0.504,fwiebe
+mcpilco,Swingup trained with MBRL algorithm MC-PILCO + stabilization with LQR.,1/1,1.45,19.43,3.22,0.097,253.59,0.316,turcato-niccolo
+evolsac,Evolutionary SAC for both swingup and stabilisation,1/1,0.96,9.26,2.71,0.03,96.56,0.524,AlbertoSinigaglia
+iLQR Riccati Gains,Stabilization of iLQR trajectory with Riccati gains. Top stabilization with LQR.,1/1,4.04,10.55,1.97,0.047,106.49,0.41,fwiebe
+SAC,Swing-up with an RL Policy learned with SAC.,1/1,1.56,18.12,13.69,0.868,136.38,0.251,pendulum
+iLQR MPC stabilization,Online optimization with iterative LQR. Stabilization of iLQR trajectory. Top stabilization with LQR.,1/1,4.88,11.58,2.55,0.049,110.59,0.364,fwiebe
+AR-EAPO,Policy trained with average reward maximum entropy RL,1/1,1.39,8.32,1.52,0.008,117.96,0.633,rnilva
