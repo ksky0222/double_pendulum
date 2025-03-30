@@ -341,7 +341,7 @@ class SAC_Lips(SAC):
         seed: Optional[int] = None,
         device: Union[th.device, str] = "auto",
         _init_setup_model: bool = True,
-        lips_lam = 0.1,
+        lips_lam = 0.001,
         lips_eps = 1e-4,
         lips_k_init = 1.0,
         lips_f_size = [256,256],
