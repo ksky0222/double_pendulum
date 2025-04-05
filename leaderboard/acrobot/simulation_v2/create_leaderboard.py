@@ -107,7 +107,7 @@ if recompute_leaderboard:
     print("##################################################3")
     print(link_base)
     print("##################################################3")
-    exit()
+    # exit()
     leaderboard_scores(
         data_paths=data_paths,
         save_to=save_to,
