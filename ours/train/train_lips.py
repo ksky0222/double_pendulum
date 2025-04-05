@@ -24,6 +24,8 @@ from double_pendulum.simulation.gym_env import (
 from double_pendulum.utils.wrap_angles import wrap_angles_top
 from double_pendulum.utils.wrap_angles import wrap_angles_diff
 
+from datetime import datetime
+
 # setting log path for the training
 log_dir = "./log_data/Lips_training"
 # log_dir = "./log_data_designC.1/SAC_training"
@@ -135,7 +137,7 @@ termination = False
 
 #tuning parameter
 n_envs = 100 # we found n_envs > 50 has very little improvement in training speed.
-training_steps = 3e7 # default = 1e6
+training_steps = 1e8 # default = 1e6
 verbose = 1
 # reward_threshold = -0.01
 reward_threshold = 1e10
@@ -151,6 +153,8 @@ dynamics_func = double_pendulum_dynamics_func(
     robot=robot,
     state_representation=state_representation,
 )
+
+timestamp = datetime.now().strftime("%Y%m%d%H%M")
 
 # import lqr parameters
 rho = np.loadtxt(os.path.join(load_path, "rho"))
@@ -310,7 +314,7 @@ eval_callback = EvalCallback(
     eval_env,
     callback_on_new_best=callback_on_best,
     best_model_save_path=os.path.join(log_dir,
-                                      "best_model"),
+                                      f"best_model_{timestamp}"),
     log_path=log_dir,
     eval_freq=eval_freq,
     verbose=verbose,
@@ -324,6 +328,7 @@ agent = SAC_Lips(
     verbose=verbose,
     tensorboard_log=os.path.join(log_dir, "tb_logs"),
     learning_rate=learning_rate,
+    lips_lam=1e-16
 )
 
 # warm_start = True
@@ -332,5 +337,3 @@ if warm_start:
     agent.set_parameters(load_path_or_dict=warm_start_path)
 
 agent.learn(total_timesteps=training_steps, callback=eval_callback)
-
-
