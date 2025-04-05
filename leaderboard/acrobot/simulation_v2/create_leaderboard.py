@@ -78,6 +78,7 @@ for file in os.listdir("."):
             simulate_controller(controller, save_dir, controller_name)
             recompute_leaderboard = True
 
+recompute_leaderboard = True
 if recompute_leaderboard:
     src_dir = "."
     data_paths = {}
@@ -97,7 +98,16 @@ if recompute_leaderboard:
                         data_dir, mod.leaderboard_config["csv_path"]
                     )
                     data_paths[mod.leaderboard_config["name"]] = conf
-
+    print("##################################################3")
+    print(data_paths)
+    print("##################################################3")
+    print(save_to)
+    print("##################################################3")
+    print(mpar)
+    print("##################################################3")
+    print(link_base)
+    print("##################################################3")
+    exit()
     leaderboard_scores(
         data_paths=data_paths,
         save_to=save_to,
