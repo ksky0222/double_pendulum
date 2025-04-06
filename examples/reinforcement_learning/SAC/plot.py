@@ -12,6 +12,7 @@ if mode==0:
     df = pd.read_csv(csv_file)
 
     df = df[df['Step'] <= 30_000_000]
+    
     # Step과 Value 컬럼
     x = df['Step']
     y = df['Value']
